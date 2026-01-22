@@ -133,6 +133,278 @@ html[data-theme="light"] .sun {
   display: block;
 }
 
+/* Clouds for light mode */
+.cloud {
+  position: absolute;
+  background: #ffffff;
+  border-radius: 100px;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 2;
+  display: none;
+}
+
+html[data-theme="light"] .cloud {
+  display: block;
+}
+
+/* Cloud shapes using box-shadow for organic look */
+.cloud::before {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border-radius: 100px;
+}
+
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #ffffff;
+  border-radius: 100px;
+}
+
+/* Hero Section Cloud - Left side of sun */
+.cloud-hero-left {
+  width: 140px;
+  height: 55px;
+  top: 200px;
+  left: 8%;
+}
+
+.cloud-hero-left::before {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 15px;
+}
+
+.cloud-hero-left::after {
+  width: 80px;
+  height: 55px;
+  top: -20px;
+  right: 15px;
+}
+
+/* About Section Cloud 1 - Left side */
+.cloud-about-1 {
+  width: 130px;
+  height: 50px;
+  top: 900px;
+  left: 5%;
+}
+
+.cloud-about-1::before {
+  width: 65px;
+  height: 65px;
+  top: -28px;
+  left: 10px;
+}
+
+.cloud-about-1::after {
+  width: 75px;
+  height: 50px;
+  top: -18px;
+  right: 10px;
+}
+
+/* About Section Cloud 2 - Right side */
+.cloud-about-2 {
+  width: 150px;
+  height: 60px;
+  top: 950px;
+  right: 7%;
+}
+
+.cloud-about-2::before {
+  width: 75px;
+  height: 75px;
+  top: -32px;
+  left: 20px;
+}
+
+.cloud-about-2::after {
+  width: 85px;
+  height: 60px;
+  top: -22px;
+  right: 20px;
+}
+
+/* Projects Section Cloud 1 - Left */
+.cloud-projects-1 {
+  width: 120px;
+  height: 48px;
+  top: 1600px;
+  left: 10%;
+}
+
+.cloud-projects-1::before {
+  width: 60px;
+  height: 60px;
+  top: -26px;
+  left: 8px;
+}
+
+.cloud-projects-1::after {
+  width: 70px;
+  height: 48px;
+  top: -16px;
+  right: 8px;
+}
+
+/* Projects Section Cloud 2 - Right */
+.cloud-projects-2 {
+  width: 140px;
+  height: 56px;
+  top: 1750px;
+  right: 8%;
+}
+
+.cloud-projects-2::before {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 12px;
+}
+
+.cloud-projects-2::after {
+  width: 80px;
+  height: 56px;
+  top: -20px;
+  right: 12px;
+}
+
+/* Skills Section Cloud 1 - Center-left */
+.cloud-skills-1 {
+  width: 135px;
+  height: 52px;
+  top: 2300px;
+  left: 15%;
+}
+
+.cloud-skills-1::before {
+  width: 68px;
+  height: 68px;
+  top: -29px;
+  left: 12px;
+}
+
+.cloud-skills-1::after {
+  width: 77px;
+  height: 52px;
+  top: -19px;
+  right: 12px;
+}
+
+/* Skills Section Cloud 2 - Center-right */
+.cloud-skills-2 {
+  width: 145px;
+  height: 58px;
+  top: 2450px;
+  right: 10%;
+}
+
+.cloud-skills-2::before {
+  width: 73px;
+  height: 73px;
+  top: -31px;
+  left: 14px;
+}
+
+.cloud-skills-2::after {
+  width: 82px;
+  height: 58px;
+  top: -21px;
+  right: 14px;
+}
+
+/* Contact Section Cloud 1 - Left */
+.cloud-contact-1 {
+  width: 130px;
+  height: 52px;
+  top: 2950px;
+  left: 8%;
+}
+
+.cloud-contact-1::before {
+  width: 65px;
+  height: 65px;
+  top: -28px;
+  left: 10px;
+}
+
+.cloud-contact-1::after {
+  width: 75px;
+  height: 52px;
+  top: -18px;
+  right: 10px;
+}
+
+/* Contact Section Cloud 2 - Right */
+.cloud-contact-2 {
+  width: 140px;
+  height: 56px;
+  top: 3050px;
+  right: 7%;
+}
+
+.cloud-contact-2::before {
+  width: 70px;
+  height: 70px;
+  top: -30px;
+  left: 12px;
+}
+
+.cloud-contact-2::after {
+  width: 80px;
+  height: 56px;
+  top: -20px;
+  right: 12px;
+}
+
+/* Contact Section Cloud 3 - Far left */
+.cloud-contact-3 {
+  width: 125px;
+  height: 50px;
+  top: 3100px;
+  left: 2%;
+}
+
+.cloud-contact-3::before {
+  width: 62px;
+  height: 62px;
+  top: -27px;
+  left: 8px;
+}
+
+.cloud-contact-3::after {
+  width: 72px;
+  height: 50px;
+  top: -17px;
+  right: 8px;
+}
+
+/* Contact Section Cloud 4 - Far right */
+.cloud-contact-4 {
+  width: 135px;
+  height: 54px;
+  top: 3000px;
+  right: 2%;
+}
+
+.cloud-contact-4::before {
+  width: 68px;
+  height: 68px;
+  top: -29px;
+  left: 10px;
+}
+
+.cloud-contact-4::after {
+  width: 77px;
+  height: 54px;
+  top: -19px;
+  right: 10px;
+}
+
 /* ==================== 
    FLOATING ANIMATIONS
    ==================== */
