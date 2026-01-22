@@ -780,6 +780,13 @@ section h2 {
   transition: color 0.5s ease;
 }
 
+.contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
 .contact-link {
   padding: 0.8rem 1.8rem;
   background: var(--accent-dark);
