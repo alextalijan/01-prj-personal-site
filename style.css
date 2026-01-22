@@ -115,6 +115,16 @@ body {
   75% { transform: translateY(-15px) translateX(-10px); }
 }
 
+/* Floating image - different animation that emphasizes vertical movement */
+.floating-image {
+  animation: float-image 7s ease-in-out infinite;
+}
+
+@keyframes float-image {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-30px); }
+}
+
 /* Floating with different delays for stagger effect */
 .floating-delayed {
   animation: float-space 6s ease-in-out infinite;
@@ -159,6 +169,7 @@ body {
   font-size: 1.3rem;
   font-weight: 700;
   color: #ffffff;
+  cursor: default;
 }
 
 .nav-menu {
@@ -278,6 +289,24 @@ section h2 {
    ABOUT SECTION
    ==================== */
 
+.about-wrapper {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-image {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+}
+
 .about-card {
   background: #ffffff;
   padding: 3rem;
@@ -286,8 +315,8 @@ section h2 {
   line-height: 1.8;
   color: #333;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  max-width: 700px;
-  margin: 0 auto;
+  flex: 1;
+  min-width: 300px;
 }
 
 /* ==================== 
@@ -462,5 +491,16 @@ section h2 {
   .about-card {
     padding: 2rem;
     font-size: 1rem;
+  }
+  
+  /* Stack image and text vertically on mobile */
+  .about-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .about-image {
+    width: 200px;
+    height: 200px;
   }
 }
