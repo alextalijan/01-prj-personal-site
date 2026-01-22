@@ -8,8 +8,16 @@
   box-sizing: border-box;
 }
 
+html {
+  /* Enable smooth scrolling when clicking anchor links */
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  /* Create a space-like background: gradient from dark blue (#0a0e27) at top 
+     to purple (#1a1a3e) in middle to dark blue (#0f0f2e) at bottom.
+     This creates the foundation layer that the stars will sit on top of. */
   background: linear-gradient(to bottom, #0a0e27, #1a1a3e, #0f0f2e);
   color: #333;
   line-height: 1.6;
@@ -29,11 +37,27 @@ body {
   left: 0;
   width: 100%;
   height: 100vh;
+  /* HOW STARS ARE CREATED:
+     Each radial-gradient() creates ONE small white dot (star):
+     - "1px 1px" = size of the dot (1 pixel circle)
+     - "at 20px 30px" = position where this star appears in the pattern
+     - "#fff" = white color (the star itself)
+     - "rgba(255,255,255,0)" = transparent (fades out from center)
+     Result: A tiny white dot that looks like a star.
+     
+     We stack multiple radial-gradients to create multiple stars in different positions.
+  */
   background-image: 
     radial-gradient(1px 1px at 20px 30px, #fff, rgba(255,255,255,0)),
     radial-gradient(1px 1px at 60px 70px, #fff, rgba(255,255,255,0)),
     radial-gradient(0.5px 0.5px at 50px 50px, #ddd, rgba(255,255,255,0)),
     radial-gradient(0.5px 0.5px at 130px 80px, #fff, rgba(255,255,255,0));
+  /* REPETITION MAGIC:
+     Instead of placing stars one by one across the entire page,
+     we create a small 200px × 200px pattern and repeat it like a rubber stamp.
+     background-repeat: repeat tiles this pattern across the whole screen.
+     background-size: 200px 200px means the pattern repeats every 200 pixels.
+  */
   background-repeat: repeat;
   background-size: 200px 200px;
   pointer-events: none;
@@ -41,12 +65,20 @@ body {
   opacity: 1;
 }
 
+/* Second layer of stars: different pattern size and dimmer */
 .stars-2 {
+  /* Using 300px pattern instead of 200px creates a different arrangement of stars,
+     adding visual complexity. Opacity 0.8 makes these stars slightly dimmer
+     than the first layer, creating depth. */
   background-size: 300px 300px;
   opacity: 0.8;
 }
 
+/* Third layer of stars: dimmest layer for subtle depth */
 .stars-3 {
+  /* 250px pattern with 0.5 opacity creates the faintest stars,
+     making them look far away. Layering three different patterns
+     together creates a realistic starfield effect. */
   background-size: 250px 250px;
   opacity: 0.5;
 }
@@ -107,7 +139,8 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background: #1a2a4a;
+  /* Make background semi-transparent so you can see the stars through the header */
+  background: rgba(26, 42, 74, 0.7);
   padding: 1.2rem 0;
   z-index: 100;
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
@@ -138,12 +171,32 @@ body {
   color: #ffffff;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: opacity 0.3s ease;
   font-weight: 500;
+  position: relative;
+  transition: opacity 0.3s ease;
+}
+
+/* Create the underline effect using a pseudo-element */
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #ffffff;
+  /* Start from the left and grow to the right on hover */
+  transition: width 0.3s ease;
+  transform-origin: left;
 }
 
 .nav-menu a:hover {
   opacity: 0.7;
+}
+
+/* Make the underline grow from left on hover */
+.nav-menu a:hover::after {
+  width: 100%;
 }
 
 /* ==================== 
@@ -162,7 +215,8 @@ section h2 {
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: 4rem;
-  color: #1a1a1a;
+  /* White color for contrast against space background */
+  color: #ffffff;
   font-weight: 700;
 }
 
