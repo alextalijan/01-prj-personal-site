@@ -116,8 +116,8 @@ html[data-theme="light"] .stars-3 {
 
 /* Sun for light mode */
 .sun {
-  position: fixed;
-  top: 80px;
+  position: absolute;
+  top: 500px;
   right: 5%;
   width: 140px;
   height: 140px;
