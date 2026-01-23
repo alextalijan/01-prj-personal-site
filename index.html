@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Alex Talijan - Portfolio</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Google Material Icons for hamburger menu -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <!-- Starfield background -->
@@ -37,11 +39,15 @@
           <span class="theme-icon">🌙</span>
         </button>
       </div>
-      <ul class="nav-menu">
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+      <!-- Hamburger menu button (hidden on larger screens) -->
+      <button class="hamburger-toggle" id="hamburgerToggle" aria-label="Toggle menu">
+        <span class="material-icons">menu</span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -78,7 +84,10 @@
       <div class="project-card floating-delayed">
         <div class="project-top">
           <div class="project-text">
-            <div class="project-header">PicklePoints</div>
+            <div class="project-header">
+              PicklePoints
+              <img src="img/picklepoints-logo.png" alt="PicklePoints logo" class="project-logo-inline">
+            </div>
             <p>Platform for enrolling in local pickleball tournaments and collecting points like in a professional environment. Built with Next.js and Prisma with PostgreSQL for a seamless full-stack experience.</p>
             <!-- Real project link is hidden while in progress -->
             <!-- <a href="#" class="project-link">View Project →</a> -->
@@ -185,6 +194,30 @@
       const icon = themeToggle.querySelector('.theme-icon');
       icon.textContent = theme === 'dark' ? '☀️' : '🌙';
     }
+
+    // Hamburger menu functionality
+    const hamburgerToggle = document.getElementById('hamburgerToggle');
+    const navMenu = document.getElementById('navMenu');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    // Toggle hamburger menu when button is clicked
+    hamburgerToggle.addEventListener('click', function() {
+      navMenu.classList.toggle('active');
+      // Change icon between menu and close
+      const icon = hamburgerToggle.querySelector('.material-icons');
+      icon.textContent = navMenu.classList.contains('active') ? 'close' : 'menu';
+    });
+
+    // Close menu when a navigation link is clicked
+    navLinks.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Close the menu
+        navMenu.classList.remove('active');
+        // Change icon back to menu
+        const icon = hamburgerToggle.querySelector('.material-icons');
+        icon.textContent = 'menu';
+      });
+    });
   </script>
 </body>
 </html>

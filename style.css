@@ -863,6 +863,27 @@ section h2 {
   z-index: 10;
 }
 
+/* Hamburger menu button - hidden by default on larger screens */
+.hamburger-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--text-primary);
+  padding: 0.5rem;
+  transition: color 0.5s ease;
+}
+
+.hamburger-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Inline project logo next to title - hidden by default */
+.project-logo-inline {
+  display: none;
+}
+
 /* ==================== 
    RESPONSIVE DESIGN
    ==================== */
@@ -907,5 +928,107 @@ section h2 {
   .about-image {
     width: 200px;
     height: 200px;
+  }
+}
+
+/* Mobile menu styles for screens 547px and below */
+@media (max-width: 547px) {
+  /* Show hamburger button */
+  .hamburger-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hide navigation menu by default on mobile */
+  .nav-menu {
+    position: fixed;
+    top: 86px;
+    right: -100%;
+    width: 70%;
+    max-width: 300px;
+    height: calc(100vh - 68px);
+    background: var(--navbar-bg);
+    backdrop-filter: blur(10px);
+    flex-direction: column;
+    padding: 2rem 1rem;
+    gap: 1.5rem;
+    transition: right 0.3s ease;
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Show menu when active class is added */
+  .nav-menu.active {
+    right: 0;
+  }
+  
+  /* Style navigation links in mobile menu */
+  .nav-menu li {
+    width: 100%;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: 0.8rem 1rem;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    transition: background 0.3s ease, color 0.5s ease;
+  }
+  
+  .nav-menu a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Remove the underline animation on mobile */
+  .nav-menu a::after {
+    display: none;
+  }
+  
+  /* Adjust hero section for mobile */
+  .hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1rem;
+  }
+  
+  section h2 {
+    font-size: 1.8rem;
+  }
+  
+  /* Project card adjustments - hide large logo and show inline logo */
+  .project-logo {
+    display: none;
+  }
+  
+  .project-logo-inline {
+    display: inline-block;
+    width: 1.3em;
+    height: 1.3em;
+    object-fit: contain;
+    vertical-align: middle;
+    margin-left: 0.4rem;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+  }
+  
+  .project-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem;
+  }
+  
+  .project-card {
+    padding: 1.8rem;
+  }
+  
+  /* Smaller padding for cards on mobile */
+  .about-card {
+    padding: 1.5rem;
+  }
+  
+  .contact-card {
+    padding: 2rem;
   }
 }
