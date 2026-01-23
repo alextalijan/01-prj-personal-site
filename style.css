@@ -771,6 +771,10 @@ section h2 {
   transform: translateY(-3px);
 }
 
+.postgresql-icon {
+  transform: scale(1.35);
+}
+
 /* ==================== 
    CONTACT SECTION
    ==================== */
