@@ -740,8 +740,12 @@ section h2 {
   display: inline-block;
 }
 
-.project-link:hover {
-  transform: translateX(5px);
+.project-link.disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: none;
+  font-style: italic;
+  transform: none;
 }
 
 .coming-soon {
